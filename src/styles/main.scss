@@ -1,0 +1,107 @@
+$card-width: 200px;
+
+body {
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+}
+
+.people {
+  --per-column: 1;
+
+  max-width: fit-content;
+  margin: 30px auto;
+  display: grid;
+  gap: 40px 30px;
+
+  grid-template-columns: repeat(var(--per-column), $card-width);
+
+  @media (min-width: 750px) {
+    --per-column: 2;
+  }
+
+  @media (min-width: 1000px) {
+    --per-column: 4;
+  }
+}
+
+.person {
+  transition-property: background-color, border-radius, transform;
+  transition-duration: 1s;
+
+  &__photo {
+    margin-bottom: 8px;
+    position: relative;
+
+    img {
+      border-radius: 50%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+
+      transition-property: border-radius;
+      transition-duration: 1s;
+    }
+  }
+
+  &__rank {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin-block: auto;
+    margin-right: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #8b0000;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  &__name {
+    font-family: Arial;
+    font-weight: 700;
+    font-size: 20px;
+    color: #2f4f4f;
+  }
+
+  &__extra {
+    opacity: 0;
+  }
+
+  &__sport::after {
+    content: ",";
+  }
+
+  &:hover {
+    padding: 12px;
+    transform: scale(1.32);
+    background-color: #eeeeee;
+    border-radius: 12px;
+    cursor: pointer;
+
+    .person__photo {
+      img {
+        border-radius: 60px;
+      }
+    }
+
+    .person__extra {
+      opacity: 1;
+    }
+  }
+}

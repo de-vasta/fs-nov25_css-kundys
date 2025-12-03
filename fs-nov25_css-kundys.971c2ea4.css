@@ -1,6 +1,5 @@
 body {
   text-align: center;
-  margin: 30px auto;
   font-family: Arial;
   font-size: 18px;
   font-weight: 400;
@@ -10,6 +9,8 @@ body {
   --per-column: 1;
   grid-template-columns: repeat(var(--per-column), 200px);
   gap: 40px 30px;
+  max-width: fit-content;
+  margin: 30px auto;
   display: grid;
 }
 
